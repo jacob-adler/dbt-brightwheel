@@ -6,7 +6,7 @@ To simulate a production environment (especially one with 100 GB source data), I
 
 In each staging model, I attempt to do some basic data cleaning. With more time, this is an area I'd spend more time in. Cleaner data would improve our matching of leads between sources as well as make the data more helpful to the sales team.
 
-The combined leads model is where I try to combine the data across sources. With limited time, my first draft includes only a join on the phone number, which the assignment suggested should be the primary identifier. With more time, I would also try to fuzzy match on address.
+The combined leads model is where I try to combine the data across sources. With limited time, my first draft includes only a join on the phone number, which the assignment suggested should be the primary identifier. With more time, I would also try to fuzzy match on address. I have a test asserting that the phone column is unique. This fails in a few places, I think because they are one person with multiple locations. I would probably add a unique key here on phone and address and assert uniqueness on that instead.
 
 The business questions helped me think about how to reconcile the methodology for combining these different data sources. I decided between either joining + coalescing or unioning + window function, though I now suspect that the best implementation should invoke dbt snapshots.
 

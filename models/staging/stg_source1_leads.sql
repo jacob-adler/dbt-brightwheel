@@ -1,3 +1,5 @@
+with
+renamed as (
 select
     "Name" as company_name,
     "Credential Type" as credential_type,
@@ -11,3 +13,22 @@ select
     "Primary Contact Name" as primary_contact_name,
     "Primary Contact Role" as primary_contact_role
 from {{ source('brightwheel', 'source1') }}
+),
+
+final as (
+    select
+        company_name,
+        credential_type,
+        status,
+        expiration_date,
+        disciplinary_action,
+        address,
+        state,
+        county,
+        regexp_replace(phone::string, '[^\d]', '', 'g') as phone,
+        primary_contact_name,
+        primary_contact_role
+    from renamed
+)
+
+select * from final

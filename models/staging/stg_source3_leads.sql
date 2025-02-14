@@ -1,5 +1,5 @@
 with
-renames as (
+renamed as (
     select
         "Operation" as operation_id,
         "Agency Number" as agency_number,
@@ -32,9 +32,9 @@ final as (
         address,
         city,
         state,
-        postal_code,
+        postal_code::string as postal_code,
         county,
-        regexp_replace(phone, '[^\d]', '', 'g') as phone,
+        regexp_replace(phone::string, '[^\d]', '', 'g') as phone,
         type,
         permit_status,
         permit_issue_date,
@@ -46,7 +46,7 @@ final as (
         has_toddler,
         has_preschool,
         has_school
-    from renames
+    from renamed
 )
 
 select * from final
