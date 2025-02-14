@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_salesforce_leads
+    description: "Staging model for the Salesforce data source"
+    columns:
+      - name: phone
+        description: "Phone is the primary key for the combined leads"
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_source1_leads
+    description: "Staging model for the data source 1"
+    columns:
+      - name: phone
+        description: "Phone is the primary key for the combined leads"
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_source2_leads
+    description: "Staging model for the data source 2"
+    columns:
+      - name: phone
+        description: "Phone is the primary key for the combined leads"
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_source3_leads
+    description: "Staging model for the data source 3"
+    columns:
+      - name: phone
+        description: "Phone is the primary key for the combined leads"
+        data_tests:
+          - unique
+          - not_null

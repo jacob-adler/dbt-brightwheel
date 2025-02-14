@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: brightwheel
+    tables:
+      - name: salesforce_leads
+        config:
+          external_location: "read_csv('source_data/salesforce_leads.csv')"
+          formatter: oldstyle
+      - name: source1
+        config:
+          external_location: "read_csv('source_data/source1.csv')"
+          formatter: oldstyle
+      - name: source2
+        config:
+          external_location: "read_csv('source_data/source2.csv')"
+          formatter: oldstyle
+      - name: source3
+        config:
+          external_location: "read_csv('source_data/source3.csv')"
+          formatter: oldstyle
+

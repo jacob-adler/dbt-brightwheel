@@ -1,0 +1,12 @@
+
+version: 2
+
+models:
+  - name: combined_leads
+    description: "A table full joining all four source datasets, then coalescing the common fields"
+    columns:
+      - name: phone
+        description: "Phone is the primary key for the combined leads"
+        data_tests:
+          - unique
+          - not_null
